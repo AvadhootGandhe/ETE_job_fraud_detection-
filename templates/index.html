@@ -2,93 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AI Fraud Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-
-<h2>Job Fraud Detection Form</h2>
-
-<form id="jobForm">
-
-    <label>Company Profile</label><br>
-    <textarea name="company_profile" required></textarea><br><br>
-
-    <label>Description</label><br>
-    <textarea name="description" required></textarea><br><br>
-
-    <label>Requirements</label><br>
-    <textarea name="requirements" required></textarea><br><br>
-
-    <label>Benefits</label><br>
-    <textarea name="benefits" required></textarea><br><br>
-
-    <label>Telecommuting (0/1)</label><br>
-    <input type="number" name="telecommuting" required><br><br>
-
-    <label>Has Company Logo (0/1)</label><br>
-    <input type="number" name="has_company_logo" required><br><br>
-
-    <label>Has Questions (0/1)</label><br>
-    <input type="number" name="has_questions" required><br><br>
-
-    <label>Employment Type</label><br>
-    <input type="text" name="employment_type" required><br><br>
-
-    <label>Required Experience</label><br>
-    <input type="text" name="required_experience" required><br><br>
-
-    <label>Required Education</label><br>
-    <input type="text" name="required_education" required><br><br>
-
-    <label>Function</label><br>
-    <input type="text" name="function" required><br><br>
-
-    <label>Mean Salary</label><br>
-    <input type="number" name="mean_salary" required><br><br>
-
-    <label>Industry</label><br>
-    <input type="text" name="industry_cleaned" required><br><br>
-
-    <label>Country</label><br>
-    <input type="text" name="country_enc" required><br><br>
-
-    <label>State</label><br>
-    <input type="text" name="state_enc" required><br><br>
-
-    <label>City</label><br>
-    <input type="text" name="city_enc" required><br><br>
-
-    <button type="submit">Predict</button>
-</form>
-
-<h3 id="result"></h3>
-
-<script>
-    const form = document.getElementById("jobForm");
-
-    form.addEventListener("submit", async function(event) {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-        const json = {};
-
-        formData.forEach((value, key) => {
-            json[key] = value;
-        });
-
-        const response = await fetch("http://127.0.0.1:5000/predict", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(json)
-        });
-
-        const output = await response.json();
-
-        document.getElementById("result").innerText =
-            "Fraud Prediction: " + output.fraud_prediction +
-            " | Probability: " + output.fraud_probability;
-    });
-</script>
-
+    <h1>Welcome to the Homepage</h1>
 </body>
 </html>
