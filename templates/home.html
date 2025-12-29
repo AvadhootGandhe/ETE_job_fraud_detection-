@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection Form</title>
+</head>
+
+<body>
+
+<h2>Fraud Detection Prediction</h2>
+
+<form action="/predict" method="post">
+
+    <label>Company Profile:</label><br>
+    <textarea name="company_profile" rows="3" cols="50"></textarea><br><br>
+
+    <label>Description:</label><br>
+    <textarea name="description" rows="3" cols="50"></textarea><br><br>
+
+    <label>Requirements:</label><br>
+    <textarea name="requirements" rows="3" cols="50"></textarea><br><br>
+
+    <label>Benefits:</label><br>
+    <textarea name="benefits" rows="3" cols="50"></textarea><br><br>
+
+    <h3>Numeric Inputs</h3>
+
+    {% for col in numeric_cols %}
+        <label>{{ col }}:</label><br>
+        <input type="number" step="any" name="{{ col }}"><br><br>
+    {% endfor %}
+
+    <button type="submit">Predict</button>
+</form>
+
+<br>
+<h3>{{ prediction_text }}</h3>
+
+</body>
+</html>
